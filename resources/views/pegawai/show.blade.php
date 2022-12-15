@@ -217,6 +217,10 @@
         </div>
         </div>
       </form>
+      <div class="form-group mt-2">
+        <label  class="form-label">Keterangan</label>
+        <article class="form-control">{!! $pegawai->ket !!}</article>
+    </div>
       </form>
     </div>     
   </div>

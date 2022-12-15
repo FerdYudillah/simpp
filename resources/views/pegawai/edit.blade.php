@@ -351,6 +351,14 @@
                                     @enderror
                                   </div>
 
+                                  <div class="form-group mt-4">
+                                    <label for="ket" class="text-success">Keterangan Anak</label>
+                                    @error('ket')
+                                        <p class="text-danger">{{ 'Isikan Keterangan' }}</p>
+                                    @enderror
+                                    <input id="ket" type="hidden" name="ket" value="{{ old('ket',$pegawai->ket) }}">
+                                    <trix-editor input="ket"></trix-editor>
+                                  </div>
       
                             </div>
                             <div class="card-footer">
