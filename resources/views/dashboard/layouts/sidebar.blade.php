@@ -80,7 +80,7 @@
       <ul class="menu-sub">
         <li class="menu-item @yield('naik_berkala')">
           <a href="/naik_berkala" class="menu-link">
-            <div data-i18n="Without menu">Data Kenaikan Berkala PNS</div>
+            <div data-i18n="Without menu">Data Kenaikan Gaji Berkala PNS</div>
           </a>
         </li>
         <li class="menu-item @yield('naik_pangkat')">
