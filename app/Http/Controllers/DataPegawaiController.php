@@ -90,7 +90,8 @@ class DataPegawaiController extends Controller
             'jumlah_anak' => 'nullable',
             'email'  => 'required|unique:pegawai|email:dns',
             'tmt' => 'required',
-            'pelatihan' => 'required'
+            'pelatihan' => 'required',
+            'ket' => 'nullable'
         ], [
             'naik_berkala' => 'Tanggal Naik Berkala Harus Diisi',
             'j_kelamin.required' => 'Jenis Kelamin Wajib Diisi',
@@ -175,7 +176,8 @@ class DataPegawaiController extends Controller
             'jumlah_anak' => 'nullable',
             'email'  => 'required|email:dns',
             'tmt' => 'required',
-            'pelatihan' => 'required'
+            'pelatihan' => 'required',
+            'ket' => 'nullable'
          ];
 
         
