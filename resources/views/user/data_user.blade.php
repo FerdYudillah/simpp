@@ -52,7 +52,6 @@
                         <td>{{ $item->level }}</td>
                         <td>
                               @can('admin')
-                              <a href="/user/{{ $item->id }}" class="btn btn-info btn-sm">  <i class="bx bx-search"></i></a>
                               <a href="/user/{{ $item->id }}/edit" class="btn btn-warning btn-sm">  <i class="bx bx-edit"></i></a>
                               <form onsubmit="return confirm('Yakin Mau Hapus Data??')" action="/user/{{ $item->id }}" method="POST" class="d-inline">
                                 @csrf

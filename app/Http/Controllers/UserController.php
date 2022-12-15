@@ -73,9 +73,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        return view('user.show_user',[
-            'user' => $user
-        ]);
+        
     }
 
     /**
