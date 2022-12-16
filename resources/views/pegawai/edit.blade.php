@@ -352,7 +352,7 @@
                                   </div>
 
                                   <div class="form-group mt-4">
-                                    <label for="ket" class="text-success">Keterangan Anak</label>
+                                    <label for="ket" class="text-success">Keterangan</label>
                                     @error('ket')
                                         <p class="text-danger">{{ 'Isikan Keterangan' }}</p>
                                     @enderror
