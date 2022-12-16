@@ -60,8 +60,8 @@
                 <th>Jabatan</th>
                 <th>Masa Kerja</th>
                 <th>Gaji Pokok</th>
-                {{-- <th>Tgl.Naik Berkala</th>
-                <th>Tgl.Naik Berkala</th> --}}
+                <th>Tanggal TMT</th>
+                <th>Pelatihan</th>
             </tr>
             @php
                 $no=1;
@@ -77,6 +77,8 @@
                     <td>{{ $item->jabatan->nama_jabatan }}</td>
                     <td>{{ $item->masa_kerja }}</td>
                     <td>{{ formatRupiah($item->gaji) }}</td>
+                    <td>{{ $item->tmt }}</td>
+                    <td>{{ $item->pelatihan }}</td>
                 </tr>
             @endforeach
         </table>
