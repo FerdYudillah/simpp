@@ -79,13 +79,24 @@
                         <input class="form-control" type="text" value="{{ $anak->jenis_kelamin }}"   disabled readonly />
                       </div>
                       <div class="mb-3 col-md-6">
-                        <label class="form-label">Status Menikah</label>
+                        <label class="form-label">Status Anak</label>
                         <input
                           type="text"
                           class="form-control"
-                          value="{{ $anak->sts_nikah }}"
+                          value="{{ $anak->status }}"
                           disabled readonly
                         />
+                      </div>
+                      <div class="row">
+                        <div class="mb-3 col-md-6">
+                          <label class="form-label">Status Menikah</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            value="{{ $anak->sts_nikah }}"
+                            disabled readonly
+                          />
+                        </div>
                       </div>
                       <div class="mb-3 col-md-6">
                         <label  class="form-label">Pendidikan</label>
