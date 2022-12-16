@@ -14,7 +14,7 @@
 <div class="row justify-content-center">
   <div class="col-md-12">
       <div class="card">
-          <h5 class="card-header text-info">Data Suami/Istri PNS Satpol PP & Damkar <i class="bx bx-user"></i></h5>
+          <h5 class="card-header text-info">Data Suami/Istri PNS Satpol PP & Damkar Tapin <i class="bx bx-user"></i></h5>
           <div class="card-body">
             <form action="/suami_istri" method="GET">
               <div class="row">
