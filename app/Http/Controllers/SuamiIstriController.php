@@ -68,6 +68,7 @@ class SuamiIstriController extends Controller
             'sts_tunjangan' => 'required',
             't_lahir' => 'required',
             'tgl_lahir' => 'required',
+            'ket' => 'nullable'
         ],[
             
         ]);
@@ -130,6 +131,7 @@ class SuamiIstriController extends Controller
             'sts_tunjangan' => 'required',
             't_lahir' => 'required',
             'tgl_lahir' => 'required',
+            'ket' => 'nullable'
         ];
 
         $validatedData = $request->validate($rules);

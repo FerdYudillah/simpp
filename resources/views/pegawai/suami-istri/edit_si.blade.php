@@ -159,7 +159,14 @@
                                   </div>
 
     
-
+                                  <div class="form-group mt-4">
+                                    <label for="ket" >Keterangan</label>
+                                    @error('ket')
+                                        <p class="text-danger">{{ 'Isikan Keterangan' }}</p>
+                                    @enderror
+                                    <input id="ket" type="hidden" name="ket" value="{{ old('ket',$suami_istri->ket) }}">
+                                    <trix-editor input="ket"></trix-editor>
+                                  </div>
                                  
                                  
                                 </div>

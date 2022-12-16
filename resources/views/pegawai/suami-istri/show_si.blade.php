@@ -70,9 +70,7 @@
               />
             </div>
           </div>
-   
 
-      
                     <div class="mb-3 col-md-6 mt-2">
                         <label class="form-label">Pekerjaan</label>
                         <input type="text" class="form-control"  value="{{ $suami_istri->pekerjaan }}"   disabled readonly />
@@ -96,7 +94,10 @@
                       </div>
                       </div>
       
-           
+                      <div class="form-group mt-2">
+                        <label  class="form-label">Keterangan</label>
+                        <article class="form-control">{!! $suami_istri->ket !!}</article>
+                    </div>
           </div>
             </form>
       </div>

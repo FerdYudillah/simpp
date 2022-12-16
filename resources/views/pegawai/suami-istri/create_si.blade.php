@@ -156,9 +156,14 @@
                                       </div>
                                   </div>
 
-    
-
-                                 
+                                  <div class="form-group mt-3">
+                                    <label for="ket" class="text">Keterangan</label>
+                                    @error('ket')
+                                        <p class="text-danger">{{ 'Isikan Keterangan' }}</p>
+                                    @enderror
+                                    <input id="ket" type="hidden" name="ket" value="{{ old('ket') }}">
+                                    <trix-editor input="ket"></trix-editor>
+                                  </div>
                                  
                                 </div>
                             </div>
