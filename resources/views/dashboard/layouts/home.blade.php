@@ -33,7 +33,7 @@
                   <div class="card bg-success text-white mb-3">
                     {{-- <div class="card-header">Header</div> --}}
                     <div class="card-body">
-                      <h4 class="text-white"><i class='bx bxs-user-account' ></i> PNS Naik Berkala</h4>
+                      <h4 class="text-white"><i class='bx bxs-user-account' ></i> PNS Naik Gaji Berkala</h4>
                       <h4 class="card-title text-white">{{ $jumlah_nb }} Orang</h4>
                     </div>
                   </div>
@@ -57,20 +57,20 @@
                   </div>
                 </div>
                 <div class="col-md-6 col-xl-3">
-                  <div class="card bg-dark text-white mb-3">
-                    {{-- <div class="card-header">Header</div> --}}
-                    <div class="card-body">
-                      <h3 class="text-white"><i class='bx bxs-user-account' ></i> Total Istri PNS</h3>
-                      <h4 class="card-title text-white">{{ $jumlah_istri }} Orang</h4>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6 col-xl-3">
                   <div class="card bg-info text-white mb-3">
                     {{-- <div class="card-header">Header</div> --}}
                     <div class="card-body">
                       <h4 class="text-white"><i class='bx bxs-user-account' ></i> Total Suami PNS</h4>
                       <h4 class="card-title text-white">{{ $jumlah_suami }} Orang</h4>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-xl-3">
+                  <div class="card bg-dark text-white mb-3">
+                    {{-- <div class="card-header">Header</div> --}}
+                    <div class="card-body">
+                      <h3 class="text-white"><i class='bx bxs-user-account' ></i> Total Istri PNS</h3>
+                      <h4 class="card-title text-white">{{ $jumlah_istri }} Orang</h4>
                     </div>
                   </div>
                 </div>
