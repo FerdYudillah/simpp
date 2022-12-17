@@ -4,7 +4,7 @@
 <title>SIMPP | Profil Suami/Istri </title>
 @section('content')
 <div class="card mb-4">
-    <h5 class="card-header ">Profile Suami/Istri</h5>
+    <h5 class="card-header ">Profile Suami/Istri : ({{ $suami_istri->nama_si }})</h5>
     <!-- Account -->
     <div class="card-body">
         <div class="button-wrapper">
