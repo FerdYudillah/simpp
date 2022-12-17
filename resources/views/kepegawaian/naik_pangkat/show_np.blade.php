@@ -4,7 +4,7 @@
 <title>SIMPP | Profil PNS Yang Menerima Kenaikan pangkat</title>
 @section('content')
 <div class="card mb-4">
-    <h5 class="card-header">Profile Details</h5>
+    <h5 class="card-header">Profile Details : ({{$naikPangkat->pegawai->nama}})</h5>
     <!-- Account -->
     <div class="card-body">
       <div class="d-flex align-items-start align-items-sm-center gap-4">
