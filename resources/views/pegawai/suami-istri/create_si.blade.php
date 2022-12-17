@@ -16,7 +16,7 @@
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="nip" class="text-success" >Nama PNS / Orang Tua Anak</label>
+                                    <label for="nip" class="text-success" >Nama PNS / Nama Pasangan</label>
                                     <select name="pegawai_id" id="pegawai_id" class="form-control col-4 datapns mb-4 select2 @error('pegawai_id')
                                         is-invalid
                                     @enderror"  >
