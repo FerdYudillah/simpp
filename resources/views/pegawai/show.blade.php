@@ -12,7 +12,7 @@
           src="{{ asset('storage/' . $pegawai->foto) }}"
           alt="user-avatar"
           class="d-block rounded"
-          height="110"
+          height="150"
           width="120"
           id="foto"
         />
@@ -24,6 +24,9 @@
             <i class="bx bx-reset d-block d-sm-none"></i>
             <a href="/pegawai" >Kembali</a>
           </button> 
+          
+            {{-- <li><a class="dropdown-item" href="/{{ $pegawai->id }}/exportPegawai" target="_blank">PDF <i class='bx bxs-file-pdf' ></i></a></li> --}}
+          
         </div>
       </div>
     </div>
@@ -171,7 +174,7 @@
           </div>
           <div class="mb-3 col-md-6">
             <label for="address" class="form-label">Gaji Pokok</label>
-            <input type="text" class="form-control" value="{{ $pegawai->gaji }}" disabled readonly />
+            <input type="text" class="form-control" value="{{ formatRupiah($pegawai->gaji) }}" disabled readonly />
           </div>
           <div class="mb-3 col-md-6">
             <label for="address" class="form-label">TMT</label>
