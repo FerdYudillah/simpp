@@ -19,7 +19,7 @@
             table tr td {
                 font-size: 13px;
             }
-    
+
         </style>
     </head>
 <body>
@@ -27,16 +27,17 @@
     <div class="form-group">
         <center>
         <table width="770">
-			<tr>	
+			<tr>
                 {{-- <td><img src="/image/lambang.jpg" width="90" height="90"></td> --}}
-                {{-- <td><img src="{{ asset('/image/lambang.jpg') }}" width="90" height="90"></td> --}}
-				<td>
+                <td width='40'><img src="{{ public_path('/image/logo-satpol-pp.png') }}" width="80" height="90"></td>
+				<td >
 				<center>
 					<font size="4">PEMERINTAH KABUPATEN TAPIN</font><br>
                     <font size="5"><b>DINAS SATUAN POLISI PAMONG PRAJA & DAMKAR TAPIN</b></font><br>
 					<font size="2"><i>Jalan Brigjen H. Hasan Basry No.22, Kode Pos 71111, RANTAU</i></font>
 				</center>
 				</td>
+                <td colspan="2"><hr></td>
 			</tr>
 			<tr>
 				<td colspan="2"><hr></td>

@@ -37,8 +37,8 @@ return new class extends Migration
             $table->foreign('golongan_id')->references('id_golongan')->on('golongan')->onDelete('cascade');; 
 
             $table->string('gaji', 100);
-            $table->date('naik_berkala');
-            $table->date('naik_pangkat');
+            $table->date('naik_berkala')->nullable();
+            $table->date('naik_pangkat')->nullable();
             $table->enum('sts_pegawai', ['Aktif', 'Tidak Aktif']);
             $table->date('tmt')->nullable();
             $table->string('email', 100)->nullable()->unique();

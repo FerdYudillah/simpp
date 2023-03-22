@@ -21,7 +21,7 @@ class NaikPangkatController extends Controller
      */
     public function index(Request $request)
     {
-       
+
         $cari = $request->cari;
         $naikPangkat = NaikPangkat::whereHas('pegawai',function($query) use($cari){
             $query->where('nama', 'LIKE', '%'.$cari.'%');
@@ -32,7 +32,7 @@ class NaikPangkatController extends Controller
         ->orWhereHas('jabatan', function($query) use($cari){
             $query->where('nama_jabatan', 'LIKE', '%'.$cari.'%');
         })
-        ->sortable()->paginate(10)->withQueryString()->onEachSide(1);
+        ->sortable()->paginate(5)->withQueryString()->onEachSide(1);
         return view('kepegawaian.naik_pangkat.index_np', compact('naikPangkat','cari'));
     }
 
@@ -76,7 +76,7 @@ class NaikPangkatController extends Controller
             $validatedData['foto'] = $request->file('foto')->store('images');
         }
 
-        
+
         NaikPangkat::create($validatedData);
         flash('Data PNS Yang akan naik Pangkat berhasil Ditambahkan..');
         return redirect('/naik_pangkat');
@@ -96,7 +96,7 @@ class NaikPangkatController extends Controller
             'pangkat' => Pangkat::all(),
             'golongan' => Golongan::all(),
             'jabatan' => Jabatan::all()
-                
+
 
         ]);
     }
@@ -181,5 +181,10 @@ class NaikPangkatController extends Controller
         $pdf = Pdf::loadview('kepegawaian.naik_pangkat.cetak-np')->setPaper('a4', 'landscape');
         return $pdf->download('daftar-pns-naik-pangkat.pdf');
     }
-    
+
+    public function npExcel()
+    {
+        $naikPangkat = NaikPangkat::all();
+        return view('kepegawaian.naik_pangkat.np_excel', compact('naikPangkat'));
+    }
 }

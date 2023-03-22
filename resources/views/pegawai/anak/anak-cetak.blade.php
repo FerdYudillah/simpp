@@ -19,7 +19,7 @@
             table tr td {
                 font-size: 13px;
             }
-    
+
         </style>
     </head>
 <body>
@@ -27,8 +27,9 @@
     <div class="form-group">
         <center>
             <table width="770">
-                <tr>	
-                    {{-- <td><img src="{{ asset('/image/Lambang_Kabupaten_Tapin.png') }}" width="90" height="90"></td> --}}
+                <tr>
+                    {{-- <td><img src="{{ public_path('/image/lambang.jpg') }}" width="90" height="90"></td> --}}
+                    <td width='40'><img src="{{ public_path('/image/logo-satpol-pp.png') }}" width="80" height="90"></td>
                     <td>
                     <center>
                         <font size="4">PEMERINTAH KABUPATEN TAPIN</font><br>
@@ -56,8 +57,7 @@
                 <th>Umur</th>
                 <th>Status</th>
                 <th>Status Tunjangan</th>
-                {{-- <th>Tgl.Naik Berkala</th>
-                <th>Tgl.Naik Berkala</th> --}}
+
             </tr>
             @php
                 $no=1;

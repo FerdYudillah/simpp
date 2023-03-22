@@ -32,7 +32,7 @@ class NaikBerkalaController extends Controller
         ->orWhereHas('jabatan', function($query) use($cari){
             $query->where('nama_jabatan', 'LIKE', '%'.$cari.'%');
         })
-        ->sortable()->paginate(10)->withQueryString()->onEachSide(1);
+        ->sortable()->paginate(5)->withQueryString()->onEachSide(1);
         return view('kepegawaian.naik_berkala.index_nb', compact('naikBerkala','cari'));
     }
 
@@ -82,8 +82,8 @@ class NaikBerkalaController extends Controller
         if($request->file('foto')){
             $validatedData['foto'] = $request->file('foto')->store('images');
         }
-       
-        
+
+
         NaikBerkala::create($validatedData);
         flash('Data PNS yang akan naik Berkala berhasil ditambahkan.. ');
         return redirect('/naik_berkala');
@@ -103,7 +103,7 @@ class NaikBerkalaController extends Controller
             'pangkat' => Pangkat::all(),
             'golongan' => Golongan::all(),
             'jabatan' => Jabatan::all()
-                
+
 
         ]);
     }
@@ -174,7 +174,7 @@ class NaikBerkalaController extends Controller
      */
     public function destroy(NaikBerkala $naikBerkala)
     {
-    
+
         $this->authorize('admin');
         if($naikBerkala->foto){
             Storage::delete($naikBerkala->foto);
@@ -191,5 +191,10 @@ class NaikBerkalaController extends Controller
         return $pdf->download('daftar-pns-naik-berkala.pdf');
     }
 
-    
+    public function nbExcel()
+    {
+        $naikBerkala = NaikBerkala::all();
+        return view('kepegawaian.naik_berkala.nb_excel', compact('naikBerkala'));
+    }
+
 }

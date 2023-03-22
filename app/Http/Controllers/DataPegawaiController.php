@@ -22,7 +22,7 @@ class DataPegawaiController extends Controller
      */
     public function index(Request $request)
     {
-        
+
         $cari = $request->cari;
         $pegawai = Pegawai::where('nama','LIKE', '%'.$cari. '%')
         ->orWhere('nip', 'LIKE', '%' .$cari. '%')
@@ -55,7 +55,7 @@ class DataPegawaiController extends Controller
             'jabatan' => Jabatan::all()
         ]);
 
-        
+
     }
 
     /**
@@ -66,7 +66,7 @@ class DataPegawaiController extends Controller
      */
     public function store(Request $request)
     {
-      
+
         $validatedData = $request->validate([
             'nip' => 'required|unique:pegawai',
             'nama' => 'required|max:200',
@@ -101,7 +101,7 @@ class DataPegawaiController extends Controller
             $validatedData['foto'] = $request->file('foto')->store('images');
         }
 
-        
+
         Pegawai::create($validatedData);
         flash('Data PNS berhasil Ditambahkan..');
         return redirect('/pegawai');
@@ -120,7 +120,7 @@ class DataPegawaiController extends Controller
             'pangkat' => Pangkat::all(),
             'golongan' => Golongan::all(),
             'jabatan' => Jabatan::all()
-                
+
 
         ]);
     }
@@ -152,7 +152,7 @@ class DataPegawaiController extends Controller
      */
     public function update(Request $request, Pegawai $pegawai)
     {
-        
+
         $rules = [
             'nip' => 'required',
             'nama' => 'required|max:200',
@@ -180,10 +180,10 @@ class DataPegawaiController extends Controller
             'ket' => 'nullable'
          ];
 
-        
+
          $validatedData = $request->validate($rules);
 
-         
+
          if($request->file('foto')){
             if($request->oldFoto){
                 Storage::delete($request->oldFoto);
@@ -191,7 +191,7 @@ class DataPegawaiController extends Controller
             $validatedData['foto'] = $request->file('foto')->store('images');
         }
 
-        
+
         Pegawai::where('id' , $pegawai->id)
             ->update($validatedData);
         flash('Data PNS telah Diedit..');
@@ -206,7 +206,7 @@ class DataPegawaiController extends Controller
      */
     public function destroy( Pegawai $pegawai)
     {
-    
+
         $this->authorize('admin');
         if($pegawai->foto){
             Storage::delete($pegawai->foto);
@@ -224,8 +224,21 @@ class DataPegawaiController extends Controller
         return $pdf->download('daftar-pns.pdf');
     }
 
-    
-    
+    public function exportPegawai(Pegawai $pegawai)
+    {
 
-   
+        $pegawai = Pegawai::where('id', $pegawai->id);
+        // view()->share('pegawai', $pegawai);
+        $pdf = Pdf::loadview('pegawai.pegawai_cetak')->setPaper('a4', 'landscape');
+        return $pdf->download('data-pns.pdf');
+    }
+
+    public function pegawaiExcel()
+    {
+        $pegawai = Pegawai::all();
+        return view('pegawai.pegawai_excel', compact('pegawai'));
+    }
+
+
+
 }

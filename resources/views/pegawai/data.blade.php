@@ -27,10 +27,11 @@
                 <div class="col-12 col-sm-6">
                   <div class="btn-group" role="group">
                     <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class='bx bxs-printer'></i>
-                      Cetak 
+                      Cetak
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                       <li><a class="dropdown-item" href="/exportpdf" target="_blank">PDF <i class='bx bxs-file-pdf' ></i></a></li>
+                      <li><a class="dropdown-item" href="{{ route('pegawai.excel') }}" target="_blank">Excel <i class='bx bx-file'></i></a></li>
                     </ul>
                   </div>
                 </div>
@@ -84,27 +85,27 @@
                         <td>{{ $peg->tmt }}</td>
                         <td>{{ $peg->pelatihan }}</td>
                         <td>{{ $peg->naik_berkala }}
-                          <?php 
+                          <?php
                           $datetime2 = strtotime($peg->naik_berkala) ;
                           $datenow = strtotime(date("Y-m-d"));
                           $durasi = ($datetime2 - $datenow) / 86400 ;
                       ?>
-                      @if ($durasi < 0   ) 
+                      @if ($durasi < 0   )
                           (Kenaikan Terlambat / {{ $durasi  }} Hari)
                       @else
-                         (Waktu Kenaikan Tinggal {{ $durasi  }} Hari Lagi) 
+                         (Waktu Kenaikan Tinggal {{ $durasi  }} Hari Lagi)
                       @endif
                         </td>
                         <td>{{ $peg->naik_pangkat }}
-                        <?php 
+                        <?php
                           $datetime2 = strtotime($peg->naik_pangkat) ;
                           $datenow = strtotime(date("Y-m-d"));
                           $durasi = ($datetime2 - $datenow) / 86400 ;
                       ?>
-                      @if ($durasi < 0   ) 
+                      @if ($durasi < 0   )
                           (Kenaikan Terlambat / {{ $durasi  }} Hari)
                       @else
-                         (Waktu Kenaikan Tinggal {{ $durasi  }} Hari Lagi) 
+                         (Waktu Kenaikan Tinggal {{ $durasi  }} Hari Lagi)
                       @endif
                         </td>
                         <td>
@@ -117,7 +118,7 @@
                           <button class="btn btn-danger btn-sm" type="submit"><i class="bx bx-trash"></i></button>
                         </form>
                         @endcan
-                        </td> 
+                        </td>
                           </tr>
                           @empty
                               <td colspan="4">Data Tidak Ada</td>

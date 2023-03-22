@@ -26,9 +26,9 @@ class AnakController extends Controller
         ->orWhereHas('pegawai', function($query) use($cari){
             $query->where('nama', 'LIKE', '%'.$cari.'%');
         })
-        ->sortable()->paginate(10)->withQueryString()->onEachSide(1);
+        ->sortable()->paginate(5)->withQueryString()->onEachSide(1);
         return view('pegawai.anak.data_anak', compact('anak','cari'));
-        
+
     }
 
     /**
@@ -37,7 +37,7 @@ class AnakController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {  
+    {
         $this->authorize('admin');
         return view('pegawai.anak.create_anak',[
             'pegawai' => Pegawai::all()
@@ -52,7 +52,7 @@ class AnakController extends Controller
      */
     public function store(Request $request)
     {
-        
+
         $request->validate([
             'pegawai_id' => 'required',
             'nama' => 'required',
@@ -70,7 +70,7 @@ class AnakController extends Controller
 
         ]);
 
-        
+
         Anak::create($request->all());
         flash('Data Anak Berhasil Ditambahkan');
         return redirect('anak');
@@ -97,7 +97,7 @@ class AnakController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Anak $anak)
-    {  
+    {
          $this->authorize('admin');
         return view('pegawai.anak.edit_anak',[
             'anak' => $anak,
@@ -114,9 +114,9 @@ class AnakController extends Controller
      */
     public function update(Request $request, Anak $anak)
     {
-        
+
         $rules = [
-     
+
             'pegawai_id' => 'required',
             'nama' => 'required',
             'status' => 'required',
@@ -131,12 +131,12 @@ class AnakController extends Controller
             'ket' => 'nullable',
             'tunjangan' => 'required'
 
-            
+
         ];
 
         $validatedData = $request->validate($rules);
 
-        
+
 
         Anak::where('id', $anak->id)
             ->update($validatedData);
@@ -164,5 +164,11 @@ class AnakController extends Controller
         $pdf = Pdf::loadview('pegawai.anak.anak-cetak')->setPaper('a4', 'landscape');
         return $pdf->download('daftar-anak-pns.pdf');
     }
-   
+
+
+    public function anakExcel()
+    {
+        $anak = Anak::all();
+        return view('pegawai.anak.anak_excel', compact('anak'));
+    }
 }

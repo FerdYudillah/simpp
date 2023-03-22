@@ -31,7 +31,7 @@ class SuamiIstriController extends Controller
         ->sortable()->paginate(5)->withQueryString()->onEachSide(1);
         return view('pegawai.suami-istri.data_si', compact('suami_istri', 'cari'));
 
-    
+
     }
 
     /**
@@ -41,7 +41,7 @@ class SuamiIstriController extends Controller
      */
     public function create()
     {
-        
+
         $this->authorize('admin');
         return view('pegawai.suami-istri.create_si',[
             'pegawai' => Pegawai::all()
@@ -70,10 +70,10 @@ class SuamiIstriController extends Controller
             'tgl_lahir' => 'required',
             'ket' => 'nullable'
         ],[
-            
+
         ]);
 
-        
+
         SuamiIstri::create($validatedData);
         flash('Data Suami/Istri Berhasil Ditambahkan..');
         return redirect('/suami_istri');
@@ -101,7 +101,7 @@ class SuamiIstriController extends Controller
      */
     public function edit(SuamiIstri $suami_istri)
     {
-        
+
         $this->authorize('admin');
         return view('pegawai.suami-istri.edit_si',[
             'suami_istri' => $suami_istri,
@@ -118,7 +118,7 @@ class SuamiIstriController extends Controller
      */
     public function update(Request $request, SuamiIstri $suami_istri)
     {
-        
+
         $this->authorize('admin');
         $rules = [
             'pegawai_id' => 'required',
@@ -150,7 +150,7 @@ class SuamiIstriController extends Controller
      */
     public function destroy(SuamiIstri $suami_istri)
     {
-        
+
         $this->authorize('admin');
         SuamiIstri::destroy($suami_istri->id);
         return redirect('suami_istri')->with('delete','Data Suami/istri Telah dihapus..!!');
@@ -172,6 +172,10 @@ class SuamiIstriController extends Controller
         return $pdf->download('daftar-suami-istri-pns.pdf');
     }
 
+    public function suamiExcel()
+    {
+        $suami_istri = SuamiIstri::all();
+        return view('pegawai.suami-istri.si_excel', compact('suami_istri'));
+    }
 
-    
 }

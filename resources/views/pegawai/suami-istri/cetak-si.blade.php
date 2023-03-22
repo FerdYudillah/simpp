@@ -19,7 +19,7 @@
             table tr td {
                 font-size: 13px;
             }
-    
+
         </style>
     </head>
 <body>
@@ -27,8 +27,8 @@
     <div class="form-group">
         <center>
             <table width="770">
-                <tr>	
-                    {{-- <td><img src="{{ asset('/image/Lambang_Kabupaten_Tapin.png') }}" width="90" height="90"></td> --}}
+                <tr>
+                    <td width='40'><img src="{{ public_path('/image/logo-satpol-pp.png') }}" width="80" height="90"></td>
                     <td>
                     <center>
                         <font size="4">PEMERINTAH KABUPATEN TAPIN</font><br>
@@ -53,14 +53,14 @@
                 <th>No</th>
                 <th >Nama PNS (Pasangan)</th>
                 <th>Nama Suami/Istri</th>
+                <th>Tempat Tanggal Lahir</th>
                 <th>J.Kelamin</th>
                 <th>Status</th>
                 <th>Pekerjaan</th>
                 <th>Umur</th>
                 <th>No HP</th>
                 <th>Status Tunjangan</th>
-                {{-- <th>Tgl.Naik Berkala</th>
-                <th>Tgl.Naik Berkala</th> --}}
+
             </tr>
             @php
                 $no=1;
@@ -70,7 +70,8 @@
                     <td>{{ $no++ }}</td>
                     <td >{{ $item->pegawai->nama }} ({{ $item->pegawai->nip }})</td>
                     <td>{{ $item->nama_si }}</td>
-                    <td>{{ $item->j_kelamin }}</td> 
+                    <td>{{ $item->t_lahir }},{{ $item->tgl_lahir }}</td>
+                    <td>{{ $item->j_kelamin }}</td>
                     <td>{{ $item->status }}</td>
                     <td>{{ $item->pekerjaan }}</td>
                     <td>{{ $item->umur }}</td>

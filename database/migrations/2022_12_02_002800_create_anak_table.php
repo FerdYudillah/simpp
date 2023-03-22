@@ -15,21 +15,23 @@ return new class extends Migration
     {
         Schema::create('anak', function (Blueprint $table) {
             $table->id();
+            
             $table->unsignedBigInteger('pegawai_id');   //
             $table->foreign('pegawai_id')->references('id')->on('pegawai')->onDelete('cascade');;
-            $table->string('nama', 100)->nullable();  
-            $table->string('status', 100)->nullable();  
-            $table->string('umur', 50)->nullable();  
-            $table->text('t_lahir');   
-            $table->date('tgl_lahir');   
-            $table->date('tgl_umur_21')->nullable();  
-            $table->enum('jenis_kelamin', ['Laki-laki', 'Perempuan'])->nullable();  
+
+            $table->string('nama', 100)->nullable();
+            $table->string('status', 100)->nullable();
+            $table->string('umur', 50)->nullable();
+            $table->text('t_lahir');
+            $table->date('tgl_lahir');
+            $table->date('tgl_umur_21')->nullable();
+            $table->enum('jenis_kelamin', ['Laki-laki', 'Perempuan'])->nullable();
             $table->enum('sts_nikah', ['Menikah', 'Belum Menikah'])->nullable();
-            $table->string('pendidikan')->nullable();  
-            $table->date('tgl_lulus_sekolah')->nullable(); 
+            $table->string('pendidikan')->nullable();
+            $table->date('tgl_lulus_sekolah')->nullable();
             $table->text('ket')->nullable();
             // $table->string('ket')->nullable();
-            $table->string('tunjangan')->nullable();  
+            $table->string('tunjangan')->nullable();
             $table->timestamps();
         });
     }

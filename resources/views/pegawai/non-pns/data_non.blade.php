@@ -9,7 +9,7 @@
     {{ session('delete') }}
   </div>
   @endif
-  
+
   <div class="row justify-content-center">
     <div class="col-md-12">
         <div class="card">
@@ -25,10 +25,11 @@
                   <div class="col-12 col-sm-6">
                     <div class="btn-group" role="group">
                       <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class='bx bxs-printer'></i>
-                        Cetak 
+                        Cetak
                       </button>
                       <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                         <li><a class="dropdown-item" href="/exportNon" target="_blank">PDF <i class='bx bxs-file-pdf' ></i></a></li>
+                        <li><a class="dropdown-item" href="{{ route('export.excel') }}" target="_blank">Excel <i class='bx bx-file'></i></a></li>
                       </ul>
                     </div>
                   </div>
@@ -85,7 +86,7 @@
                           <button class="btn btn-danger btn-sm" type="submit"><i class="bx bx-trash"></i></button>
                         </form>
                         @endcan
-                        </td> 
+                        </td>
                           </tr>
                           @empty
                               <td colspan="4">Data Tidak Ada</td>
@@ -97,5 +98,5 @@
             </div>
         </div>
     </div>
-  </div>   
+  </div>
 @endsection

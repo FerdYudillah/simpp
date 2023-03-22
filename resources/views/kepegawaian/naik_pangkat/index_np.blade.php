@@ -26,10 +26,11 @@
                 <div class="col-12 col-sm-6">
                   <div class="btn-group" role="group">
                     <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class='bx bxs-printer'></i>
-                      Cetak 
+                      Cetak
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                       <li><a class="dropdown-item" href="/exportpangkat">PDF <i class='bx bxs-file-pdf' ></i></a></li>
+                      <li><a class="dropdown-item" href="{{ route('np.excel') }}" target="_blank">Excel <i class='bx bx-file'></i></i></a></li>
                     </ul>
                   </div>
                 </div>

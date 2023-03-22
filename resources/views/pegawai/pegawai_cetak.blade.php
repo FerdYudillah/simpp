@@ -19,7 +19,7 @@
             table tr td {
                 font-size: 13px;
             }
-
+    
         </style>
     </head>
 <body>
@@ -27,17 +27,16 @@
     <div class="form-group">
         <center>
         <table width="770">
-			<tr>
+			<tr>	
                 {{-- <td><img src="/image/lambang.jpg" width="90" height="90"></td> --}}
-                <td width='40'><img src="{{ public_path('/image/logo-satpol-pp.png') }}" width="80" height="90"></td>
-				<td >
+                {{-- <td><img src="{{ asset('/image/lambang.jpg') }}" width="90" height="90"></td> --}}
+				<td>
 				<center>
 					<font size="4">PEMERINTAH KABUPATEN TAPIN</font><br>
                     <font size="5"><b>DINAS SATUAN POLISI PAMONG PRAJA & DAMKAR TAPIN</b></font><br>
 					<font size="2"><i>Jalan Brigjen H. Hasan Basry No.22, Kode Pos 71111, RANTAU</i></font>
 				</center>
 				</td>
-                <td colspan="2"><hr></td>
 			</tr>
 			<tr>
 				<td colspan="2"><hr></td>
@@ -46,38 +45,40 @@
     </center>
         <table width="770">
             <center>
-                <font size="4"><b>DAFTAR PEGAWAI NON PNS</b></font><br>
+                <font size="4"><b>DAFTAR PEGAWAI NEGERI SIPIL</b></font><br>
             </center>
         </table>
         <br>
         <table class="static " align="center" rules="all" border="1px" style="width: 95%;">
             <tr>
                 <th>No</th>
-                    <th>Nama</th>
-                    <th>NITP</th>
-                    <th>Tempat,Tanggal lahir</th>
-                    <th>J.kelamin</th>
-                    <th>Awal Bekerja</th>
-                    <th>Pendidikan Awal</th>
-                    <th>Pendidikan Terakhir</th>
-                    <th>Jabatan</th>>
+                <th>NIP</th>
+                <th>Nama</th>
+                <th>J.Kelamin</th>
+                <th>Pangkat</th>
+                <th>Gol.Ruang</th>
+                <th>Jabatan</th>
+                <th>Masa Kerja</th>
+                <th>Gaji Pokok</th>
+                <th>Tanggal TMT</th>
+                <th>Pelatihan</th>
             </tr>
-            @php
-                $no=1;
-            @endphp
-           @foreach ($nonPegawai as $non)
+            
+            
                 <tr>
-                    <td>{{ $no++ }}</td>
-                        <td>{{ $non->nama }}</td>
-                        <td>{{ $non->nitp }}</td>
-                        <td>{{ $non->t_lahir }},{{ $non->tgl_lahir }}</td>
-                        <td>{{ $non->j_kelamin }}</td>
-                        <td>{{ $non->awal_kerja }}</td>
-                        <td>{{ $non->pend_awal }}</td>
-                        <td>{{ $non->pend_akhir }}</td>
-                        <td>{{ $non->jabatan->nama_jabatan }}</td>
+                    
+                    <td>{{ $pegawai->nip }}</td>
+                    <td>{{ $pegawai->nama }}</td>
+                    <td>{{ $pegawai->j_kelamin }}</td>
+                    <td>{{ $pegawai->pangkat->nama_pangkat }}</td>
+                    <td>{{ $pegawai->golongan->nama_golongan }}</td>
+                    <td>{{ $pegawai->jabatan->nama_jabatan }}</td>
+                    <td>{{ $pegawai->masa_kerja }}</td>
+                    <td>{{ formatRupiah($pegawai->gaji) }}</td>
+                    <td>{{ $pegawai->tmt }}</td>
+                    <td>{{ $pegawai->pelatihan }}</td>
                 </tr>
-            @endforeach
+           
         </table>
     </div>
 </center>

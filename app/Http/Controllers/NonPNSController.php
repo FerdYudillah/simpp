@@ -77,8 +77,8 @@ class NonPNSController extends Controller
 
         if($request->file('foto')){
             $validatedData['foto'] = $request->file('foto')->store('images');
-        } 
-        
+        }
+
         nonPegawai::create($validatedData);
         flash('Data Pegawai Non PNS berhasil Ditambahkan..');
         return redirect('/non_pns');
@@ -142,7 +142,7 @@ class NonPNSController extends Controller
             'foto' => 'nullable'
          ];
 
-        
+
          $validatedData = $request->validate($rules);
          if($request->file('foto')){
             if($request->oldFoto){
@@ -151,7 +151,7 @@ class NonPNSController extends Controller
             $validatedData['foto'] = $request->file('foto')->store('images');
         }
 
-        
+
         nonPegawai::where('id' , $id)
             ->update($validatedData);
         flash('Data Pegawai Non PNS telah Diedit..');
@@ -172,7 +172,7 @@ class NonPNSController extends Controller
             Storage::delete($nonPegawai->foto);
         }
         nonPegawai::where('id',$id)->delete();
-        flash('Data Jabatan Telah Dihapus');
+        flash('Data Pegawai Non PNS Telah Dihapus');
         return redirect('non_pns');
     }
 
@@ -181,6 +181,13 @@ class NonPNSController extends Controller
         $nonPegawai = nonPegawai::all();
         view()->share('nonPegawai', $nonPegawai);
         $pdf = Pdf::loadview('pegawai.non-pns.non_cetak')->setPaper('a4', 'landscape');
-        return $pdf->download('daftar-non-pns.pdf');
+        return $pdf->stream('daftar-non-pns.pdf');
+    }
+
+    public function exportExcel()
+    {
+        $nonPegawai = nonPegawai::all();
+        return view('pegawai.non-pns.non_excel', compact('nonPegawai'));
+
     }
 }

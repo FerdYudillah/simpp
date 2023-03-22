@@ -16,3 +16,4 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+resources/views/pegawai/suami-istri/cetak-si.blade.php
